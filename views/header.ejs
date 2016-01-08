@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title><%= title %></title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body screen_capture_injected = "true">
+<div id = "dialog">
+    <% if(error) { %>
+    <div class = "alert alert-danger alert-dismissable">
+    <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">&times;</button>
+   <strong>warning</strong><%= error %> 
+    </div>
+    <% } %>
+
+    <% if(success) {%>
+    <div class = "alert alert-success alert-dismissable">
+    <button type = "button" class = "close" data-dismiss = "alert" aria-hidden = "true">&times;</button>
+   <strong>info</strong><%= success %> 
+    </div>
+    <% } %>
+</div>
