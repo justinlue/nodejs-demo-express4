@@ -16,6 +16,15 @@ router.post('/', function(req, res, next) {
         password:'123456'
     };
 
+    req.assert('username', 'required').notEmpty();
+    req.assert('password', 'required').notEmpty().len(6, 16);
+    var valerror = req.validationErrors();
+    if (valerror) {
+        req.flash('error', ' Please input username and password');    
+        res.redirect('/login');
+        return;
+    }
+
     if (req.body.username === user.username &&
         req.body.password === user.password) {
         req.flash('success', ' Login success');    
